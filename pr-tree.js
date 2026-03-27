@@ -1233,7 +1233,7 @@ function renderHtml(options = {}) {
         <span>· open pr graph</span>
       </div>
       <div class="toolbar">
-        <input id="search" class="search" type="search" placeholder="search: PR-4910, feature-branch, @kamskr, approved, review required">
+        <input id="search" class="search" type="search" placeholder="search: PR-4910, feature-branch, @username, approved, review required">
         <div class="actions">
           <button class="action" id="refresh">Refresh</button>
           <button class="action" id="reset">Reset search</button>

@@ -13,7 +13,7 @@ const {
 
 test("renderHtml uses generic copy", () => {
 	const html = renderHtml();
-	assert.ok(html.includes("search: PR-4910, feature-branch, @kamskr, approved, review required"));
+	assert.ok(html.includes("search: PR-4910, feature-branch, @username, approved, review required"));
 	assert.ok(html.includes('class="repo-link"'));
 	assert.ok(html.includes('id="repo-link"'));
 	assert.ok(html.includes('id="loading-screen"'));

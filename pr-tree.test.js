@@ -1,7 +1,14 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { renderHtml, serializeGraph } = require("./pr-tree");
+const {
+	buildForest,
+	getDemoPRs,
+	getGraphPayload,
+	parseArgs,
+	renderHtml,
+	serializeGraph,
+} = require("./pr-tree");
 
 test("renderHtml uses generic copy", () => {
 	const html = renderHtml();
@@ -15,6 +22,39 @@ test("renderHtml uses generic copy", () => {
 	assert.ok(html.includes('repoLinkEl.href = data.repo.url || "#";'));
 });
 
+test("renderHtml can boot in demo mode", () => {
+	const html = renderHtml({ demo: true });
+	assert.ok(html.includes("const demoMode = true;"));
+	assert.ok(html.includes("Loading demo graph fixture for README screenshot."));
+	assert.ok(html.includes('"/api/data?ts=" + Date.now() + (demoMode ? "&demo=1" : "")'));
+});
+
+test("getGraphPayload returns sample data in demo mode", () => {
+	const graph = getGraphPayload({ demo: true });
+	const demoPRs = getDemoPRs();
+	const { roots, children } = buildForest(demoPRs);
+
+	assert.equal(graph.repo.nameWithOwner, "kamskr/demo-stacked-prs");
+	assert.equal(graph.prs.length, demoPRs.length);
+	assert.deepEqual(
+		graph.componentRoots.map((id) => Number(id)),
+		[101, 110],
+	);
+	assert.equal(demoPRs.length, 14);
+	assert.deepEqual(
+		roots.map((pr) => pr.number),
+		[101, 110],
+	);
+	assert.deepEqual(
+		(children.get(103) ?? []).map((pr) => pr.number),
+		[104, 105],
+	);
+	assert.deepEqual(
+		(children.get(110) ?? []).map((pr) => pr.number),
+		[111],
+	);
+});
+
 test("serializeGraph includes repo metadata", () => {
 	const graph = serializeGraph([], [], new Map(), {
 		name: "gh-pr-visualizer",
@@ -26,5 +66,14 @@ test("serializeGraph includes repo metadata", () => {
 		name: "gh-pr-visualizer",
 		nameWithOwner: "kamskr/gh-pr-visualizer",
 		url: "https://github.com/kamskr/gh-pr-visualizer",
+	});
+});
+
+test("parseArgs supports demo mode", () => {
+	assert.deepEqual(parseArgs(["--demo"]), {
+		help: false,
+		demo: true,
+		port: 43123,
+		format: "html",
 	});
 });

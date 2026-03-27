@@ -102,6 +102,297 @@ function getRepoInfo() {
 	};
 }
 
+function getDemoRepoInfo() {
+	return {
+		name: "demo-stacked-prs",
+		nameWithOwner: "kamskr/demo-stacked-prs",
+		url: "https://github.com/kamskr/demo-stacked-prs",
+	};
+}
+
+function getDemoPRs() {
+	return [
+		{
+			number: 101,
+			title: "Shell: launch visual PR map",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/101",
+			baseRefName: "main",
+			headRefName: "feat/pr-map-shell",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 9,
+			additions: 412,
+			deletions: 67,
+			createdAt: "2026-03-20T09:15:00.000Z",
+			updatedAt: "2026-03-24T08:42:00.000Z",
+			author: { login: "kamskr" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-21T13:20:00.000Z",
+					author: { login: "monalisa" },
+				},
+			],
+		},
+		{
+			number: 102,
+			title: "Data: wire live GitHub fetch",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/102",
+			baseRefName: "feat/pr-map-shell",
+			headRefName: "feat/live-fetch",
+			isDraft: false,
+			reviewDecision: "REVIEW_REQUIRED",
+			changedFiles: 14,
+			additions: 286,
+			deletions: 58,
+			createdAt: "2026-03-21T10:05:00.000Z",
+			updatedAt: "2026-03-24T11:10:00.000Z",
+			author: { login: "bkeepers" },
+			latestReviews: [],
+		},
+		{
+			number: 103,
+			title: "UI: card stack polish and focus mode",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/103",
+			baseRefName: "feat/live-fetch",
+			headRefName: "feat/focus-mode",
+			isDraft: false,
+			reviewDecision: "CHANGES_REQUESTED",
+			changedFiles: 11,
+			additions: 198,
+			deletions: 43,
+			createdAt: "2026-03-21T16:32:00.000Z",
+			updatedAt: "2026-03-25T09:55:00.000Z",
+			author: { login: "kamskr" },
+			latestReviews: [
+				{
+					state: "CHANGES_REQUESTED",
+					submittedAt: "2026-03-25T08:30:00.000Z",
+					author: { login: "defunkt" },
+				},
+			],
+		},
+		{
+			number: 104,
+			title: "Filters: author, branch, review state",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/104",
+			baseRefName: "feat/focus-mode",
+			headRefName: "feat/filter-pills",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 8,
+			additions: 154,
+			deletions: 26,
+			createdAt: "2026-03-22T07:48:00.000Z",
+			updatedAt: "2026-03-25T10:04:00.000Z",
+			author: { login: "kamskr" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-24T14:12:00.000Z",
+					author: { login: "gaearon" },
+				},
+			],
+		},
+		{
+			number: 105,
+			title: "Layout: split detail rail from tree canvas",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/105",
+			baseRefName: "feat/focus-mode",
+			headRefName: "feat/detail-rail",
+			isDraft: false,
+			reviewDecision: "REVIEW_REQUIRED",
+			changedFiles: 12,
+			additions: 221,
+			deletions: 49,
+			createdAt: "2026-03-22T09:22:00.000Z",
+			updatedAt: "2026-03-25T12:25:00.000Z",
+			author: { login: "yyx990803" },
+			latestReviews: [],
+		},
+		{
+			number: 106,
+			title: "Search: focus a subtree from result click",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/106",
+			baseRefName: "feat/filter-pills",
+			headRefName: "feat/search-focus",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 7,
+			additions: 118,
+			deletions: 21,
+			createdAt: "2026-03-22T11:40:00.000Z",
+			updatedAt: "2026-03-25T15:18:00.000Z",
+			author: { login: "bkeepers" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-24T17:01:00.000Z",
+					author: { login: "monalisa" },
+				},
+			],
+		},
+		{
+			number: 107,
+			title: "Readme: add screenshot crop + quickstart",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/107",
+			baseRefName: "feat/search-focus",
+			headRefName: "docs/readme-shot",
+			isDraft: true,
+			reviewDecision: null,
+			changedFiles: 4,
+			additions: 71,
+			deletions: 8,
+			createdAt: "2026-03-22T13:05:00.000Z",
+			updatedAt: "2026-03-25T17:36:00.000Z",
+			author: { login: "kamskr" },
+			latestReviews: [],
+		},
+		{
+			number: 108,
+			title: "Details: timeline and lineage mini-panels",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/108",
+			baseRefName: "feat/detail-rail",
+			headRefName: "feat/timeline-lineage",
+			isDraft: false,
+			reviewDecision: "CHANGES_REQUESTED",
+			changedFiles: 10,
+			additions: 193,
+			deletions: 34,
+			createdAt: "2026-03-22T15:24:00.000Z",
+			updatedAt: "2026-03-25T18:05:00.000Z",
+			author: { login: "defunkt" },
+			latestReviews: [
+				{
+					state: "CHANGES_REQUESTED",
+					submittedAt: "2026-03-25T17:50:00.000Z",
+					author: { login: "gaearon" },
+				},
+			],
+		},
+		{
+			number: 109,
+			title: "Polish: compact node badges and counters",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/109",
+			baseRefName: "feat/timeline-lineage",
+			headRefName: "feat/compact-badges",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 5,
+			additions: 84,
+			deletions: 16,
+			createdAt: "2026-03-22T18:10:00.000Z",
+			updatedAt: "2026-03-25T19:22:00.000Z",
+			author: { login: "kamskr" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-25T19:00:00.000Z",
+					author: { login: "monalisa" },
+				},
+			],
+		},
+		{
+			number: 110,
+			title: "Infra: baseline release workflow",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/110",
+			baseRefName: "main",
+			headRefName: "chore/release-flow",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 6,
+			additions: 122,
+			deletions: 19,
+			createdAt: "2026-03-19T12:12:00.000Z",
+			updatedAt: "2026-03-23T15:44:00.000Z",
+			author: { login: "hubot" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-20T09:10:00.000Z",
+					author: { login: "monalisa" },
+				},
+			],
+		},
+		{
+			number: 111,
+			title: "CI: parallel screenshot smoke test",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/111",
+			baseRefName: "chore/release-flow",
+			headRefName: "test/smoke-shot",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 7,
+			additions: 133,
+			deletions: 24,
+			createdAt: "2026-03-20T14:50:00.000Z",
+			updatedAt: "2026-03-23T16:10:00.000Z",
+			author: { login: "yyx990803" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-21T11:40:00.000Z",
+					author: { login: "gaearon" },
+				},
+			],
+		},
+		{
+			number: 112,
+			title: "Fixtures: deterministic sample repo dataset",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/112",
+			baseRefName: "test/smoke-shot",
+			headRefName: "test/demo-fixtures",
+			isDraft: false,
+			reviewDecision: "APPROVED",
+			changedFiles: 6,
+			additions: 95,
+			deletions: 13,
+			createdAt: "2026-03-21T18:22:00.000Z",
+			updatedAt: "2026-03-24T09:10:00.000Z",
+			author: { login: "hubot" },
+			latestReviews: [
+				{
+					state: "APPROVED",
+					submittedAt: "2026-03-22T08:48:00.000Z",
+					author: { login: "defunkt" },
+				},
+			],
+		},
+		{
+			number: 113,
+			title: "Ops: ship static export for docs site",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/113",
+			baseRefName: "test/demo-fixtures",
+			headRefName: "ops/static-export",
+			isDraft: false,
+			reviewDecision: "REVIEW_REQUIRED",
+			changedFiles: 9,
+			additions: 140,
+			deletions: 31,
+			createdAt: "2026-03-22T08:55:00.000Z",
+			updatedAt: "2026-03-24T16:12:00.000Z",
+			author: { login: "bkeepers" },
+			latestReviews: [],
+		},
+		{
+			number: 114,
+			title: "Release: docs preview environment hook",
+			url: "https://github.com/kamskr/demo-stacked-prs/pull/114",
+			baseRefName: "ops/static-export",
+			headRefName: "ops/docs-preview",
+			isDraft: true,
+			reviewDecision: null,
+			changedFiles: 5,
+			additions: 61,
+			deletions: 9,
+			createdAt: "2026-03-22T10:12:00.000Z",
+			updatedAt: "2026-03-24T18:40:00.000Z",
+			author: { login: "yyx990803" },
+			latestReviews: [],
+		},
+	];
+}
+
 function buildForest(prs) {
 	const children = new Map();
 	const indegree = new Map();
@@ -381,13 +672,14 @@ function serializeGraph(prs, roots, children, repo) {
 	};
 }
 
-function getGraphPayload() {
-	const prs = getPRs();
+function getGraphPayload(options = {}) {
+	const repo = options.demo ? getDemoRepoInfo() : getRepoInfo();
+	const prs = options.demo ? getDemoPRs() : getPRs();
 	const { roots, children } = buildForest(prs);
-	return serializeGraph(prs, roots, children, getRepoInfo());
+	return serializeGraph(prs, roots, children, repo);
 }
 
-function renderHtml() {
+function renderHtml(options = {}) {
 	const favicon = getFaviconDataUrl();
 
 	return `<!doctype html>
@@ -962,6 +1254,7 @@ function renderHtml() {
   </main>
 
   <script>
+    const demoMode = ${escapeInlineJson(Boolean(options.demo))};
     let data = null;
     let byId = new Map();
     let childMap = {};
@@ -1494,11 +1787,21 @@ function renderHtml() {
     };
 
     const loadData = async () => {
-      setLoading(true, data ? "Refreshing graph from GitHub." : "Pulling live repo and PR data from GitHub.");
+      setLoading(
+        true,
+        demoMode
+          ? "Loading demo graph fixture for README screenshot."
+          : data
+            ? "Refreshing graph from GitHub."
+            : "Pulling live repo and PR data from GitHub.",
+      );
       generatedEl.textContent = "loading live PR data...";
 
       try {
-        const response = await fetch("/api/data?ts=" + Date.now(), { cache: "no-store" });
+        const response = await fetch(
+          "/api/data?ts=" + Date.now() + (demoMode ? "&demo=1" : ""),
+          { cache: "no-store" },
+        );
         if (!response.ok) {
           throw new Error("HTTP " + response.status);
         }
@@ -1525,7 +1828,9 @@ function renderHtml() {
         if (state.focusId && !byId.has(state.focusId)) {
           state.focusId = null;
         }
-        generatedEl.textContent = "generated " + new Date(data.generatedAt).toLocaleString();
+        generatedEl.textContent = demoMode
+          ? "demo fixture · screenshot-safe"
+          : "generated " + new Date(data.generatedAt).toLocaleString();
         render();
         setLoading(false);
       } catch (error) {
@@ -1568,7 +1873,7 @@ function writeAndOpenFile(filename, contents) {
 	return outputPath;
 }
 
-function startServer(port) {
+function startServer(port, options = {}) {
 	const server = http.createServer((request, response) => {
 		if (!request.url) {
 			response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
@@ -1586,7 +1891,9 @@ function startServer(port) {
 
 		if (url.pathname === "/api/data") {
 			try {
-				const payload = getGraphPayload();
+				const payload = getGraphPayload({
+					demo: options.demo || url.searchParams.get("demo") === "1",
+				});
 				response.writeHead(200, {
 					"Content-Type": "application/json; charset=utf-8",
 					"Cache-Control": "no-store",
@@ -1606,7 +1913,7 @@ function startServer(port) {
 				"Content-Type": "text/html; charset=utf-8",
 				"Cache-Control": "no-store",
 			});
-			response.end(renderHtml());
+			response.end(renderHtml({ demo: options.demo || url.searchParams.get("demo") === "1" }));
 			return;
 		}
 
@@ -1638,6 +1945,7 @@ function parseArgs(argv) {
 	const portArg = argv.find((arg) => arg.startsWith("--port="));
 	return {
 		help: argv.includes("--help") || argv.includes("-h"),
+		demo: argv.includes("--demo"),
 		port: portArg
 			? Number.parseInt(portArg.slice("--port=".length), 10)
 			: SERVER_PORT,
@@ -1658,12 +1966,14 @@ function printHelp() {
   node tool/pr-tree.js --dot
   node tool/pr-tree.js --html
   node tool/pr-tree.js --svg
+  node tool/pr-tree.js --demo
 
 Options:
   --text  Print the plain-text tree to stdout.
   --dot   Print Graphviz DOT to stdout.
   --html  Open the live local HTML app in the default browser.
   --svg   Generate ./pr-tree.svg and open it in the default browser.
+  --demo  Use fixed sample PR data for screenshots and local previews.
   --help  Show this help.
 
 Notes:
@@ -1683,7 +1993,7 @@ async function main() {
 	}
 
 	if (options.format === "html") {
-		const server = await startServer(options.port);
+		const server = await startServer(options.port, options);
 		const target = `http://127.0.0.1:${options.port}`;
 		openTarget(target);
 		console.log(`Opened ${target}`);
@@ -1700,7 +2010,8 @@ async function main() {
 		return;
 	}
 
-	const prs = getPRs();
+	const payload = getGraphPayload(options);
+	const prs = payload.prs;
 	const { roots, children } = buildForest(prs);
 
 	if (options.format === "svg") {
@@ -1730,6 +2041,8 @@ if (require.main === module) {
 module.exports = {
 	buildForest,
 	formatNode,
+	getDemoPRs,
+	getDemoRepoInfo,
 	getGraphPayload,
 	getComponentRoots,
 	getPRs,

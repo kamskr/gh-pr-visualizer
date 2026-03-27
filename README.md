@@ -11,7 +11,7 @@ Instead of asking:
 
 you get a quick graph of the actual branch structure.
 
-![Demo screenshot](./demo-screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/kamskr/gh-pr-visualizer/main/demo-screenshot.png)
 
 ## What It Solves
 
@@ -23,6 +23,19 @@ In bigger projects, stacked PRs get messy fast.
 - reviewers and authors waste time figuring out what needs to land or sync first
 
 This tool pulls open PRs, infers parent/child relationships from `baseRefName` and `headRefName`, and renders the stack as a tree so you can inspect the structure at a glance.
+
+## Features
+
+- visualizes open PRs as a tree based on actual branch relationships
+- shows root branches, tree depth, visible PR count, and review-state counts
+- search by PR number, title, branch name, author, or review status
+- focus a subtree when you want to review one stack in isolation
+- collapse or expand subtrees to reduce noise in large graphs
+- open an entire PR chain at once with `Open review batch`
+- copy the current branch name of the selected PR
+- copy the full list of PR links for the selected subtree
+- inspect review facts, focus path, and mini timeline for the selected PR
+- refresh live data from GitHub without restarting the tool
 
 ## Install
 
@@ -41,7 +54,7 @@ gh pr-visualizer
 As a standalone CLI:
 
 ```bash
-npm install -g github:kamskr/gh-pr-visualizer
+npm install -g gh-pr-visualizer
 ```
 
 Then run:

@@ -1987,22 +1987,20 @@ function parseArgs(argv) {
 
 function printHelp() {
 	console.log(`Usage:
-	  node pr-tree.js
-	  node pr-tree.js --text
-	  node pr-tree.js --dot
-	  node pr-tree.js --html
-	  node pr-tree.js --svg
-	  node pr-tree.js --demo
-	  gh-pr-visualizer
+		  node pr-tree.js
+		  node pr-tree.js --text
+		  node pr-tree.js --dot
+		  node pr-tree.js --html
+		  node pr-tree.js --svg
+		  gh-pr-visualizer
 
-	Options:
-	  --text  Print the plain-text tree to stdout.
-	  --dot   Print Graphviz DOT to stdout.
-	  --html  Open the live local HTML app in the default browser.
-	  --svg   Generate ./pr-tree.svg and open it in the default browser.
-	  --demo  Use fixed sample PR data for screenshots and local previews.
-	  --no-open  Start or generate output without opening a browser/window.
-	  --help  Show this help.
+		Options:
+		  --text  Print the plain-text tree to stdout.
+		  --dot   Print Graphviz DOT to stdout.
+		  --html  Open the live local HTML app in the default browser.
+		  --svg   Generate ./pr-tree.svg and open it in the default browser.
+		  --no-open  Start or generate output without opening a browser/window.
+		  --help  Show this help.
 
 Notes:
   Default mode is --html.

@@ -1,15 +1,31 @@
 {
 	"name": "gh-pr-visualizer",
-	"version": "0.1.0",
-	"description": "Visualize open pull requests as a branch tree",
+	"version": "1.0.0",
+	"description": "Visualize stacked GitHub pull requests as a branch tree",
+	"license": "MIT",
 	"bin": {
 		"gh-pr-visualizer": "./gh-pr-visualizer"
 	},
 	"files": [
+		"LICENSE",
 		"gh-pr-visualizer",
 		"pr-tree.js",
-		"README.md",
-		"demo-screenshot.png"
+		"README.md"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kamskr/gh-pr-visualizer.git"
+	},
+	"homepage": "https://github.com/kamskr/gh-pr-visualizer#readme",
+	"bugs": {
+		"url": "https://github.com/kamskr/gh-pr-visualizer/issues"
+	},
+	"keywords": [
+		"github",
+		"gh",
+		"pull-requests",
+		"stacked-prs",
+		"review"
 	],
 	"engines": {
 		"node": ">=18"

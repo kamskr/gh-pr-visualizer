@@ -5,6 +5,7 @@ const {
 	buildForest,
 	getDemoPRs,
 	getGraphPayload,
+	main,
 	parseArgs,
 	renderHtml,
 	serializeGraph,
@@ -70,10 +71,15 @@ test("serializeGraph includes repo metadata", () => {
 });
 
 test("parseArgs supports demo mode", () => {
-	assert.deepEqual(parseArgs(["--demo"]), {
+	assert.deepEqual(parseArgs(["--demo", "--no-open"]), {
 		help: false,
 		demo: true,
+		noOpen: true,
 		port: 43123,
 		format: "html",
 	});
+});
+
+test("main is exported for the wrapper entrypoint", () => {
+	assert.equal(typeof main, "function");
 });

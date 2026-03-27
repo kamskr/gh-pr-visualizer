@@ -24,10 +24,49 @@ In bigger projects, stacked PRs get messy fast.
 
 This tool pulls open PRs, infers parent/child relationships from `baseRefName` and `headRefName`, and renders the stack as a tree so you can inspect the structure at a glance.
 
+## Install
+
+As a GitHub CLI extension:
+
+```bash
+gh extension install kamskr/gh-pr-visualizer
+```
+
+Then run:
+
+```bash
+gh pr-visualizer
+```
+
+As a standalone CLI:
+
+```bash
+npm install -g github:kamskr/gh-pr-visualizer
+```
+
+Then run:
+
+```bash
+gh-pr-visualizer
+```
+
+## Requirements
+
+- `gh` installed
+- `gh auth login` done
+- run inside a Git repository hosted on GitHub
+- Node.js 18+
+
 ## Usage
 
 Live GitHub data:
 
 ```bash
-node pr-tree.js
+gh pr-visualizer
+```
+
+Prevent the tool from auto-opening a browser window:
+
+```bash
+gh pr-visualizer --no-open
 ```

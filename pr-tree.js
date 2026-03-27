@@ -1863,13 +1863,38 @@ function renderHtml(options = {}) {
 }
 
 function openTarget(target) {
-	execFileSync("open", [target]);
+	try {
+		if (process.platform === "darwin") {
+			execFileSync("open", [target]);
+			return true;
+		}
+
+		if (process.platform === "win32") {
+			execFileSync("cmd", ["/c", "start", "", target]);
+			return true;
+		}
+
+		if (process.platform === "linux") {
+			execFileSync("xdg-open", [target]);
+			return true;
+		}
+
+		return false;
+	} catch (error) {
+		if (error.code === "ENOENT") {
+			return false;
+		}
+
+		throw error;
+	}
 }
 
-function writeAndOpenFile(filename, contents) {
+function writeAndOpenFile(filename, contents, options = {}) {
 	const outputPath = path.join(process.cwd(), filename);
 	writeFileSync(outputPath, contents, "utf8");
-	openTarget(outputPath);
+	if (!options.noOpen) {
+		openTarget(outputPath);
+	}
 	return outputPath;
 }
 
@@ -1946,6 +1971,7 @@ function parseArgs(argv) {
 	return {
 		help: argv.includes("--help") || argv.includes("-h"),
 		demo: argv.includes("--demo"),
+		noOpen: argv.includes("--no-open"),
 		port: portArg
 			? Number.parseInt(portArg.slice("--port=".length), 10)
 			: SERVER_PORT,
@@ -1961,20 +1987,22 @@ function parseArgs(argv) {
 
 function printHelp() {
 	console.log(`Usage:
-  node tool/pr-tree.js
-  node tool/pr-tree.js --text
-  node tool/pr-tree.js --dot
-  node tool/pr-tree.js --html
-  node tool/pr-tree.js --svg
-  node tool/pr-tree.js --demo
+	  node pr-tree.js
+	  node pr-tree.js --text
+	  node pr-tree.js --dot
+	  node pr-tree.js --html
+	  node pr-tree.js --svg
+	  node pr-tree.js --demo
+	  gh-pr-visualizer
 
-Options:
-  --text  Print the plain-text tree to stdout.
-  --dot   Print Graphviz DOT to stdout.
-  --html  Open the live local HTML app in the default browser.
-  --svg   Generate ./pr-tree.svg and open it in the default browser.
-  --demo  Use fixed sample PR data for screenshots and local previews.
-  --help  Show this help.
+	Options:
+	  --text  Print the plain-text tree to stdout.
+	  --dot   Print Graphviz DOT to stdout.
+	  --html  Open the live local HTML app in the default browser.
+	  --svg   Generate ./pr-tree.svg and open it in the default browser.
+	  --demo  Use fixed sample PR data for screenshots and local previews.
+	  --no-open  Start or generate output without opening a browser/window.
+	  --help  Show this help.
 
 Notes:
   Default mode is --html.
@@ -1995,8 +2023,12 @@ async function main() {
 	if (options.format === "html") {
 		const server = await startServer(options.port, options);
 		const target = `http://127.0.0.1:${options.port}`;
-		openTarget(target);
-		console.log(`Opened ${target}`);
+		if (options.noOpen) {
+			console.log(`Server running at ${target}`);
+		} else {
+			const opened = openTarget(target);
+			console.log(opened ? `Opened ${target}` : `Server running at ${target}`);
+		}
 		console.log("Server attached. Ctrl-C to stop.");
 
 		const shutdown = () => {
@@ -2016,8 +2048,11 @@ async function main() {
 
 	if (options.format === "svg") {
 		const svg = renderSvg(prs, roots, children);
-		const outputPath = writeAndOpenFile("pr-tree.svg", svg);
+		const outputPath = writeAndOpenFile("pr-tree.svg", svg, options);
 		console.log(`Created ${outputPath}`);
+		if (!options.noOpen) {
+			console.log("Open the file manually if it did not launch automatically.");
+		}
 		return;
 	}
 
@@ -2056,6 +2091,7 @@ module.exports = {
 	renderSvg,
 	serializeGraph,
 	startServer,
+	main,
 	openTarget,
 	writeAndOpenFile,
 };

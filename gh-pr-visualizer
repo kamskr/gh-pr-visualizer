@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const { main } = require("./pr-tree");
+
+main().catch((error) => {
+	console.error(error.message);
+	process.exit(1);
+});

@@ -1,0 +1,17 @@
+{
+	"name": "gh-pr-visualizer",
+	"version": "0.1.0",
+	"description": "Visualize open pull requests as a branch tree",
+	"bin": {
+		"gh-pr-visualizer": "./gh-pr-visualizer"
+	},
+	"files": [
+		"gh-pr-visualizer",
+		"pr-tree.js",
+		"README.md",
+		"demo-screenshot.png"
+	],
+	"engines": {
+		"node": ">=18"
+	}
+}
